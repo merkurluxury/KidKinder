@@ -1,0 +1,64 @@
+﻿@model KidKinder.Models.Entities.Service
+@{
+    ViewBag.Title = "BringService";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <!-- Modern Form Card Start -->
+            <div class="card shadow">
+                <div class="card-header bg-info text-white">
+                    <h3 class="card-title">Hizmet Güncelleme Sayfası</h3>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("UpdateService", "Service", FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate" }))
+                    {
+                        @Html.HiddenFor(x => x.ServiceId, new { @class = "form-control" })
+
+                        <div class="form-group mb-3">
+                            <label for="Title">Başlık:</label>
+                            @Html.TextBoxFor(x => x.Title, new { @class = "form-control form-control-lg", placeholder = "Başlık giriniz", @required = "required" })
+                            <div class="invalid-feedback">Lütfen bir başlık giriniz.</div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="IconUrl">İkon URL:</label>
+                            @Html.TextBoxFor(x => x.IconUrl, new { @class = "form-control form-control-lg", placeholder = "İkon URL giriniz", @required = "required" })
+                            <div class="invalid-feedback">Lütfen ikon URL'si giriniz.</div>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="Description">Geniş Açıklama:</label>
+                            @Html.TextAreaFor(x => x.Description, new { @class = "form-control form-control-lg", placeholder = "Açıklama giriniz", @required = "required", rows = "5" })
+                            <div class="invalid-feedback">Lütfen bir açıklama giriniz.</div>
+                        </div>
+
+                        <button type="submit" class="btn btn-lg btn-info">GÜNCELLE</button>
+                    }
+                </div>
+            </div>
+            <!-- Modern Form Card End -->
+        </div>
+    </div>
+</div>
+
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    var forms = document.getElementsByClassName('needs-validation');
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>

@@ -1,0 +1,43 @@
+﻿@model KidKinder.Models.Entities.Parent
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white text-center">
+                    <h2>Yeni Veli Girişi</h2>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("Create", "Parent", FormMethod.Post, new { @class = "row g-3" }))
+                    {
+                        <div class="mb-3">
+                            <label for="FirstName" class="form-label">İsim :</label>
+                            @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control", @required = "required" })
+                        </div>
+                        <div class="mb-3">
+                            <label for="LastName" class="form-label">Soyisim :</label>
+                            @Html.TextBoxFor(x => x.LastName, new { @class = "form-control", @required = "required" })
+                        </div>
+                        <div class="mb-3">
+                            <label for="Email" class="form-label">E-posta :</label>
+                            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @required = "required", @type = "email" })
+                        </div>
+                        <div class="mb-3">
+                            <label for="PhoneNumber" class="form-label">Telefon :</label>
+                            @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control", @required = "required" })
+                        </div>
+                        <div class="mb-3">
+                            <label for="Address" class="form-label">Açık Adres :</label>
+                            @Html.TextBoxFor(x => x.Address, new { @class = "form-control", @required = "required" })
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Kaydet</button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

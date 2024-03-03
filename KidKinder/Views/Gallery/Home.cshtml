@@ -1,0 +1,55 @@
+﻿@using KidKinder.Models.Entities
+@model List<Gallery>
+
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page-body start -->
+            <div class="page-body">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <h5>Fotograf Deposu</h5>
+                        <a href="/Gallery/Create/" class="btn btn-success float-end"><i class="fa fa-plus-circle"></i> Yeni Fotograf Ekle</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Resim</th>
+                                        <th>Durum</th>
+                                        <th>İşlem</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td><img src="@item.ImageUrl" class="img-fluid" style="max-height: 100px; max-width: 150px;"></td>
+                                            <td>
+                                                @if (item.Status == 1)
+                                                {
+                                                    <a href="/Gallery/Forward/@item.GalleryID" class="btn btn-success">Aktif</a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="/Gallery/Back/@item.GalleryID" class="btn btn-danger">Pasif</a>
+                                                }
+                                            </td>
+                                            <td><a href="/Gallery/Delete/@item.GalleryID" class="btn btn-danger"><i class="fa fa-trash"></i> Sil</a></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

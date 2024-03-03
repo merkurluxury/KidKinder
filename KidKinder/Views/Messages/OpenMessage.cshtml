@@ -1,0 +1,26 @@
+﻿@model KidKinder.Models.Entities.Contact
+
+@{ ViewBag.Title = "OpenMessage";
+    Layout = "~/Views/AdminLayout/Index.cshtml"; }
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card border-0 shadow-lg">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="card-title">Mesaj Detayı</h2>
+                </div>
+                <div class="card-body">
+                    <p><strong>Gönderen Mail:</strong> @Model.Email</p>
+                    <p><strong>Gönderici:</strong> @Model.NameSurname</p>
+                    <p><strong>Gönderim Tarihi:</strong> @Model.SendDate.ToString("dd/MM/yyyy HH:mm")</p>
+                    <p><strong>Mesaj:</strong> @Model.Message</p>
+                </div>
+                <div class="card-footer bg-light">
+                    <a href="@Url.Action("Index", "Messages")" class="btn btn-primary">Geri Dön</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

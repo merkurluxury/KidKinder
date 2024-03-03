@@ -1,0 +1,74 @@
+﻿@model KidKinder.Models.Entities.ClassRoom
+
+@{ ViewBag.Title = "Create";
+                Layout = "~/Views/AdminLayout/Index.cshtml"; }
+
+<div class="main-body">
+    <div class="page-wrapper">
+        <div class="page-body">
+            <div class="row">
+                <div class="col-sm-12">
+                    <!-- Basic Form Inputs card start -->
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-header bg-dark text-white">
+                            <h5 class="m-0">Yeni Sınıf Kayıt Sayfası</h5>
+                        </div>
+                        <div class="card-body bg-light">
+                            @using (Html.BeginForm("NewClass", "Classes", FormMethod.Post))
+                            {
+                                <form method="post">
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label text-dark">Başlık :</label>
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(x => x.Title, new { @class = "form-control form-control-lg rounded-0", @required = "required" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label text-dark">Açıklama :</label>
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(x => x.Description, new { @class = "form-control form-control-lg rounded-0", @required = "required" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label text-dark">Yaş Aralığı :</label>
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(x => x.AgeOfKids, new { @class = "form-control form-control-lg rounded-0", @required = "required" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label text-dark">Toplam Ders :</label>
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(x => x.TotalSeat, new { @class = "form-control form-control-lg rounded-0", @required = "required" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label text-dark">Başlangıç Saati :</label>
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(x => x.ClassTime, new { @class = "form-control form-control-lg rounded-0", @required = "required" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label text-dark">Ücret :</label>
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(x => x.Price, new { @class = "form-control form-control-lg rounded-0", @required = "required" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label text-dark">Resim URL :</label>
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control form-control-lg rounded-0", @required = "required" })
+                                        </div>
+                                    </div>
+                                    <div class="text-left">
+                                        <button class="btn btn-dark btn-lg rounded-0"><i class="fas fa-save text-white"></i> KAYDET</button>
+                                    </div>
+                                </form>
+                            }
+                        </div>
+                    </div>
+                    <!-- Basic Form Inputs card end -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

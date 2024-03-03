@@ -1,0 +1,45 @@
+﻿@model KidKinder.Models.Entities.Student
+@{
+    ViewBag.Title = "BringStudent";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title">Öğrenci Güncelleme Sayfası</h5>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("Update", "Student", FormMethod.Post, new { @class = "row g-3" }))
+                    {
+                        <div class="col-md-12">
+                            <label for="FirstName" class="form-label">Adı :</label>
+                            @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control", @required = "required" })
+                        </div>
+                        <div class="col-md-12">
+                            <label for="LastName" class="form-label">Soyadı :</label>
+                            @Html.TextBoxFor(x => x.LastName, new { @class = "form-control", @required = "required" })
+                        </div>
+                        <div class="col-md-12">
+                            <label for="BirthDay" class="form-label">Doğum Tarihi :</label>
+                            @Html.TextBoxFor(x => x.BirthDay, new { @class = "form-control", @required = "required", @type = "date" })
+                        </div>
+                        <div class="col-md-12">
+                            <label for="ParentID" class="form-label">Ebeveyn ID :</label>
+                            @Html.TextBoxFor(x => x.ParentID, new { @class = "form-control", @required = "required" })
+                        </div>
+                        <div class="col-md-12">
+                            <label for="Status" class="form-label">Aktiflik :</label>
+                            @Html.TextBoxFor(x => x.Status, new { @class = "form-control", @required = "required" })
+                        </div>
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-success">KAYDET</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

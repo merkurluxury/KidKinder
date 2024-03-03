@@ -1,0 +1,105 @@
+﻿
+@{ Layout = null; }
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KidKinder Giriş Ekranı</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: linear-gradient(to right, #2c3e50, #34495e);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #f4f4f4;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 500px;
+            max-width: 25%;
+        }
+
+        .logo {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 300px; /* You can adjust the size */
+            margin-top: 1;
+
+        }
+
+        .form-container {
+            padding: 20px;
+        }
+
+            .form-container h1 {
+                text-align: center;
+                margin: 8px 5px;
+            }
+
+            .form-container input {
+                width: 100%;
+                padding: 15px;
+                margin-bottom: 20px;
+                border-radius: 10px;
+                border: none;
+                background-color: rgba(255, 255, 255, 0.7);
+                box-sizing: border-box;
+                color: #333;
+            }
+
+            .form-container button {
+                width: 100%;
+                padding: 15px;
+                background-color: #16a085;
+                border: none;
+                border-radius: 10px;
+                color: white;
+                cursor: pointer;
+                transition: background 0.3s ease;
+            }
+
+                .form-container button:hover {
+                    background-color: #1abc9c;
+                }
+
+            .form-container a {
+                text-decoration: none;
+                color: #16a085;
+                display: block;
+                text-align: center;
+                margin-top: 15px;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://i.hizliresim.com/29q86t3.png" alt="Logo" class="logo">
+        <div class="form-container">
+            <form method="post">
+                <h1>Giriş Yap</h1>
+                <input type="email" placeholder="e-Posta Adresi" name="Username" required>
+                <input type="password" placeholder="Şifre" name="Password" required>
+                <button type="submit">Giriş</button>
+                <a href="#" onclick="forgotPassword()">→ Şifremi Unuttum ! ←</a>
+            </form>
+        </div>
+    </div>
+    <script>
+        function forgotPassword() {
+            alert("Lütfen Yöneticiniz İle İletişime Geçin");
+        }
+    </script>
+</body>
+</html>

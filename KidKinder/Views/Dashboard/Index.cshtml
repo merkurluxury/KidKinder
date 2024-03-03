@@ -1,0 +1,331 @@
+﻿@using KidKinder.Models.Entities
+@model List<Teacher>
+@{ ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml"; }
+
+<br />
+<br />
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <!-- Favicon icon -->
+    <link rel="icon" href="~/Template/KidAdmin/assets/images/favicon.ico" type="image/x-icon">
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    <!-- waves.css -->
+    <link rel="stylesheet" href="~/Template/KidAdmin/assets/pages/waves/css/waves.min.css" type="text/css" media="all">
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="~/Template/KidAdmin/assets/css/bootstrap/css/bootstrap.min.css">
+    <!-- waves.css -->
+    <link rel="stylesheet" href="~/Template/KidAdmin/assets/pages/waves/css/waves.min.css" type="text/css" media="all">
+    <!-- themify icon -->
+    <link rel="stylesheet" type="text/css" href="~/Template/KidAdmin/assets/icon/themify-icons/themify-icons.css">
+    <!-- font-awesome-n -->
+    <link rel="stylesheet" type="text/css" href="~/Template/KidAdmin/assets/css/font-awesome-n.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Template/KidAdmin/assets/css/font-awesome.min.css">
+    <!-- scrollbar.css -->
+    <link rel="stylesheet" type="text/css" href="~/Template/KidAdmin/assets/css/jquery.mCustomScrollbar.css">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+<link href="~/Templates/material_able-main/assets/css/font-awesome-n.min.css" rel="stylesheet" />
+<link href="~/Templates/material_able-main/assets/css/font-awesome.min.css" rel="stylesheet" />
+<div class="row">
+    <!-- Material statustic card start -->
+    <div class="col-xl-4 col-md-12">
+        <div class="card mat-stat-card">
+            <div class="card-block">
+                <div class="row align-items-center b-b-default">
+                    <div class="col-sm-6 b-r-default p-b-20 p-t-20">
+                        <div class="row align-items-center text-center">
+                            <div class="col-4 p-r-0">
+                                <i class="far fa-user text-c-purple f-24"></i>
+                            </div>
+                            <div class="col-8 p-l-0">
+                                <h5>@ViewBag.ResimCizimCount</h5>
+                                <p class="text-muted m-b-0">Resim Çizme Öğretmeni</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-b-20 p-t-20">
+                        <div class="row align-items-center text-center">
+                            <div class="col-4 p-r-0">
+                                <i class="fas fa-money-bill-alt text-c-green f-24"></i>
+                            </div>
+                            <div class="col-8 p-l-0">
+                                <h5>@ViewBag.AvgPrice</h5>
+                                <p class="text-muted m-b-0">Fiyat Ortalaması</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-sm-6 p-b-20 p-t-20 b-r-default">
+                        <div class="row align-items-center text-center">
+                            <div class="col-4 p-r-0">
+                                <i class="far fa-file-alt text-c-red f-24"></i>
+                            </div>
+                            <div class="col-8 p-l-0">
+                                <h5>@ViewBag.TotalService</h5>
+                                <p class="text-muted m-b-0">Hizmet Sayısı</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-b-20 p-t-20">
+                        <div class="row align-items-center text-center">
+                            <div class="col-4 p-r-0">
+                                <i class="far fa-envelope-open text-c-blue f-24"></i>
+                            </div>
+                            <div class="col-8 p-l-0">
+                                <h5>@ViewBag.LastClassroom</h5>
+                                <p class="text-muted m-b-0">Son Açılan Sınıfımız</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-md-12">
+        <div class="card mat-stat-card">
+            <div class="card-block">
+                <div class="row align-items-center b-b-default">
+                    <div class="col-sm-6 b-r-default p-b-20 p-t-20">
+                        <div class="row align-items-center text-center">
+                            <div class="col-4 p-r-0">
+                                <i class="fas fa-share-alt text-c-purple f-24"></i>
+                            </div>
+                            <div class="col-8 p-l-0">
+                                <h5>@ViewBag.MaxBranchTeacher</h5>
+                                <p class="text-muted m-b-0">En Çok Branşa Ait Öğretmen Sayısı</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-b-20 p-t-20">
+                        <div class="row align-items-center text-center">
+                            <div class="col-4 p-r-0">
+                                <i class="fas fa-sitemap text-c-green f-24"></i>
+                            </div>
+                            <div class="col-8 p-l-0">
+                                <h5>@ViewBag.TotalBranch</h5>
+                                <p class="text-muted m-b-0">Branş Sayısı</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-sm-6 p-b-20 p-t-20 b-r-default">
+                        <div class="row align-items-center text-center">
+                            <div class="col-4 p-r-0">
+                                <i class="fas fa-signal text-c-red f-24"></i>
+                            </div>
+                            <div class="col-8 p-l-0">
+                                <h5>@ViewBag.MaxBranch</h5>
+                                <p class="text-muted m-b-0">En Çok Branş</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-b-20 p-t-20">
+                        <div class="row align-items-center text-center">
+                            <div class="col-4 p-r-0">
+                                <i class="fas fa-book text-c-blue f-24"></i>
+                            </div>
+                            <div class="col-8 p-l-0">
+                                <h5>@ViewBag.TotalMessage</h5>
+                                <p class="text-muted m-b-0">Toplam Mesajlar</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-md-12">
+        <div class="card mat-clr-stat-card text-white green ">
+            <div class="card-block">
+                <div class="row">
+                    <div class="col-3 text-center bg-c-green">
+                        <i class="fas fa-star mat-icon f-24"></i>
+                    </div>
+                    <div class="col-9 cst-cont">
+                        <h5>@ViewBag.AdminCount</h5>
+                        <p class="m-b-0">Admin Sayısı</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mat-clr-stat-card text-white blue">
+            <div class="card-block">
+                <div class="row">
+                    <div class="col-3 text-center bg-c-blue">
+                        <i class="fas fa-trophy mat-icon f-24"></i>
+                    </div>
+                    <div class="col-9 cst-cont">
+                        <h5>@ViewBag.ParentCount</h5>
+                        <p class="m-b-0">Toplam Veli Sayısı</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-xl-4 col-md-12">
+        <div class="card mat-stat-card">
+            <div class="card-block">
+                <div class="row align-items-center b-b-default">
+                    <div class="col-sm-6 b-r-default p-b-20 p-t-20">
+                        <div class="row align-items-center text-center">
+                            <div class="col-4 p-r-0">
+                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                            </div>
+                            <div class="col-8 p-l-0">
+                                <h5>@ViewBag.BugunkuMesajSayisi</h5>
+                                <p class="text-muted m-b-0">Bugünkü Mesaj Sayısı</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-b-20 p-t-20">
+                        <div class="row align-items-center text-center">
+                            <div class="col-4 p-r-0">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </div>
+                            <div class="col-8 p-l-0">
+                                <h5>@ViewBag.IsReadMesajSayisi</h5>
+                                <p class="text-muted m-b-0">Okunmamış Mesaj Sayısı</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-sm-6 p-b-20 p-t-20 b-r-default">
+                        <div class="row align-items-center text-center">
+                            <div class="col-4 p-r-0">
+                                <i class="fa fa-bell" aria-hidden="true"></i>
+                            </div>
+                            <div class="col-8 p-l-0">
+                                <h5>@ViewBag.ToplamBildirimSayisi</h5>
+                                <p class="text-muted m-b-0">Toplam Bildirim Sayısı</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-b-20 p-t-20">
+                        <div class="row align-items-center text-center">
+                            <div class="col-4 p-r-0">
+                                <i class="fa fa-users" aria-hidden="true"></i>
+                            </div>
+                            <div class="col-8 p-l-0">
+                                <h5>@ViewBag.ToplamOgrenciSayisi</h5>
+                                <p class="text-muted m-b-0">Toplam Öğrenci Mevcudu</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sosyal medya kartları -->
+    <div class="col-xl-4 col-md-12">
+        <div class="card mat-stat-card">
+            <div class="card-block">
+                <div class="row align-items-center b-b-default">
+                    <div class="col-sm-6 b-r-default p-b-20 p-t-20">
+                        <div class="row align-items-center text-center">
+                            <div class="col-4 p-r-0">
+                                <a href="sosyal medya linki 1"><i class="fab fa-facebook-f"></i></a>
+                            </div>
+                            <div class="col-8 p-l-0">
+                                <p class="text-muted m-b-0">Facebook</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-b-20 p-t-20">
+                        <div class="row align-items-center text-center">
+                            <div class="col-4 p-r-0">
+                                <a href="sosyal medya linki 2"><i class="fab fa-twitter"></i></a>
+                            </div>
+                            <div class="col-8 p-l-0">
+                                <p class="text-muted m-b-0">Twitter</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-sm-6 p-b-20 p-t-20 b-r-default">
+                        <div class="row align-items-center text-center">
+                            <div class="col-4 p-r-0">
+                                <a href="sosyal medya linki 3"><i class="fab fa-instagram"></i></a>
+                            </div>
+                            <div class="col-8 p-l-0">
+                                <p class="text-muted m-b-0">Instagram</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-b-20 p-t-20">
+                        <div class="row align-items-center text-center">
+                            <div class="col-4 p-r-0">
+                                <a href="sosyal medya linki 4"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                            <div class="col-8 p-l-0">
+                                <p class="text-muted m-b-0">LinkedIn</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-12">
+        <div class="card proj-progress-card">
+            <div class="card-block">
+                <div class="row">
+                    <div class="col-xl-3 col-md-6">
+                        <h6>Öğrenci Kayıtları</h6>
+                        <h5 class="m-b-30 f-w-700">Toplam Öğrenci<span class="text-c-green m-l-10">@ViewBag.TotalStudents</span></h5>
+                        <div class="progress">
+                            <div class="progress-bar bg-c-red" style="width:50%"></div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <h6>Velilerin Memnuniyeti</h6>
+                        <h5 class="m-b-30 f-w-700">Anket Sonuçları<span class="text-c-red m-l-10">@ViewBag.ParentSatisfactionRate%</span></h5>
+                        <div class="progress">
+                            <div class="progress-bar bg-c-blue" style="width:@ViewBag.ParentSatisfactionRate%"></div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <h6>Öğretmenlerin Eğitimi</h6>
+                        <h5 class="m-b-30 f-w-700">Katılım Oranı<span class="text-c-green m-l-10">@ViewBag.TeacherTrainingAttendanceRate%</span></h5>
+                        <div class="progress">
+                            <div class="progress-bar bg-c-green" style="width:@ViewBag.TeacherTrainingAttendanceRate%"></div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <h6>Yapılan Etkinlikler</h6>
+                        <h5 class="m-b-30 f-w-700">Son 1 Aydaki Etkinlikler<span class="text-c-green m-l-10">@ViewBag.TotalEvents</span></h5>
+                        <div class="progress">
+                            <div class="progress-bar bg-c-yellow" style="width:75%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Material statustic card end -->
+    <!-- order-visitor start -->
+    <!-- order-visitor end -->
+    <!--  sale analytics start -->
+
+
+
+</div>
+
+
+<!--  sale analytics end -->
+<!-- Project statustic start -->
+
+

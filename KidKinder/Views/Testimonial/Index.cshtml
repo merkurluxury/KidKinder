@@ -1,0 +1,56 @@
+﻿@using KidKinder.Models.Entities
+@model List<Testimonial>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="card-title">Gelen Yorumlar</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>İsim</th>
+                                        <th>Meslek</th>
+                                        <th>Yorum</th>
+                                        <th>Güncelle</th>
+                                        <th>Sil</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.NameSurname</td>
+                                            <td>@item.Title</td>
+                                            <td>@item.Comment</td>
+                                            <td>
+                                                <a href="/Testimonial/Update/@item.TestimonialId" class="btn btn-secondary">
+                                                    <i class="fa fa-edit"></i> Güncelle
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="/Testimonial/Delete/@item.TestimonialId" class="btn btn-danger">
+                                                    <i class="fa fa-times-circle"></i> Sil
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

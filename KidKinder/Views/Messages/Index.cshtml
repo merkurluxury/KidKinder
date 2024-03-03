@@ -1,0 +1,65 @@
+﻿@using KidKinder.Models.Entities
+@model List<Contact>
+@{ ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml"; }
+
+<div class="pcoded-inner-content">
+    <!-- Main-body start -->
+    <div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page-body start -->
+            <div class="page-body">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Gelen Kutusu</h5>
+                        <div class="card-header-right">
+                            <ul class="list-unstyled card-option">
+                                <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                                <li><i class="fa fa-window-maximize full-card"></i></li>
+                                <li><i class="fa fa-minus minimize-card"></i></li>
+                                <li><i class="fa fa-refresh reload-card"></i></li>
+                                <li><i class="fa fa-trash close-card"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-block table-border-style">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Gönderen</th>
+                                        <th>Başlık</th>
+                                        <th>Mesaj</th>
+                                        <th>Tarih</th>
+                                        <td> Okunma Durumu</td>
+                                        <td>Open Message</td>
+                                        <td>Delete Message</td>
+                                        <td> Okundu Olarak İşaretle</td>
+
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                    <tr>
+                                        <td>@item.ContactId</td>
+                                        <td>@item.NameSurname</td>
+                                        <td>@item.Subject</td>
+                                        <td>@item.SendDate.ToString("dd.MM.yyyy")</td>
+                                        <td>@(item.IsRead ? "Okundu" : "Okunmadı")</td>
+
+
+                                        @*<td>@(item.IsRead != null ? (item.IsRead.Value ? "Okundu" : "Okunmadı") : "Bilinmiyor")</td>*@
+
+                                        <td><a href="/Messages/OpenMessage/@item.ContactId" class="btn btn-info">Open Message</a></td>
+                                        <td><a href="/Messages/DeleteContact/@item.ContactId" class="btn btn-danger">Delete Message</a></td>
+                                        <td> <a href="/Messages/MarkAsRead/@item.ContactId" class="btn btn-warning">Okundu Olarak İşaretle</a> </td>
+                                    </tr>}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

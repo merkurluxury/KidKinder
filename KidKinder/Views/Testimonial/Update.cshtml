@@ -1,0 +1,73 @@
+﻿@model KidKinder.Models.Entities.Testimonial
+
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <!-- Modern Form Card Start -->
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title">Yorum Güncelleme Sayfası</h5>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("Update", "Testimonial", FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate" }))
+                    {
+                        @Html.HiddenFor(x => x.TestimonialId)
+
+                        <div class="form-group mb-3">
+                            <label for="NameSurname" class="form-label">İsim:</label>
+                            @Html.TextBoxFor(x => x.NameSurname, new { @class = "form-control form-control-lg", placeholder = "İsim giriniz", @required = "required" })
+                            <div class="invalid-feedback">Lütfen isim giriniz.</div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="Title" class="form-label">Meslek:</label>
+                            @Html.TextBoxFor(x => x.Title, new { @class = "form-control form-control-lg", placeholder = "Meslek giriniz", @required = "required" })
+                            <div class="invalid-feedback">Lütfen meslek giriniz.</div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="Comment" class="form-label">Yorum:</label>
+                            @Html.TextBoxFor(x => x.Comment, new { @class = "form-control form-control-lg", placeholder = "Yorumunuzu giriniz", @required = "required" })
+                            <div class="invalid-feedback">Lütfen yorum giriniz.</div>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="ImageUrl" class="form-label">Resim URL:</label>
+                            @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control form-control-lg", placeholder = "Resim URL giriniz", @required = "required" })
+                            <div class="invalid-feedback">Lütfen resim URL'si giriniz.</div>
+                        </div>
+
+                        <button type="submit" class="btn btn-lg btn-success">KAYDET</button>
+                    }
+                </div>
+            </div>
+            <!-- Modern Form Card End -->
+        </div>
+    </div>
+</div>
+
+<script>
+// JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>

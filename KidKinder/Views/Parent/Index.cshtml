@@ -1,0 +1,52 @@
+﻿@using KidKinder.Models.Entities
+@model List<Parent>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title">Veli Listesi</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>İsim</th>
+                                    <th>Soyisim</th>
+                                    <th>E-Posta</th>
+                                    <th>Telefon Numarası</th>
+                                    <th>Adres</th>
+                                    <th>Güncelle</th>
+                                    <th>Sil</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.ParentID</td>
+                                        <td>@item.FirstName</td>
+                                        <td>@item.LastName</td>
+                                        <td>@item.Email</td>
+                                        <td>@item.PhoneNumber</td>
+                                        <td>@item.Address</td>
+                                        <td><a href="/Parent/BringParent/@item.ParentID" class="btn btn-outline-secondary"><i class="fas fa-edit"></i> Güncelle</a></td>
+                                        <td><a href="/Parent/Delete/@item.ParentID" class="btn btn-outline-danger"><i class="fas fa-times-circle"></i> Sil</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <a href="/Parent/Create/" class="btn btn-outline-success"><i class="fas fa-plus-circle"></i> Yeni Kayıt</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

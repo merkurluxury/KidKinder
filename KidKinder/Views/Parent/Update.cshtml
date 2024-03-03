@@ -1,0 +1,74 @@
+﻿@model KidKinder.Models.Entities.Parent
+@{
+    ViewBag.Title = "BringParent";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <!-- Modern Form Card Start -->
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="card-title">Veli Güncelleme Sayfası</h3>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("Update", "Parent", FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate" }))
+                    {
+                        <div class="form-group mb-3">
+                            @Html.HiddenFor(x => x.ParentID)
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="FirstName">İsim:</label>
+                            @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control form-control-lg", placeholder = "İsim giriniz", @required = "required" })
+                            <div class="invalid-feedback">Lütfen isim giriniz.</div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="LastName">Soy İsim:</label>
+                            @Html.TextBoxFor(x => x.LastName, new { @class = "form-control form-control-lg", placeholder = "Soy isim giriniz", @required = "required" })
+                            <div class="invalid-feedback">Lütfen soy isim giriniz.</div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="Email">E-Posta:</label>
+                            @Html.TextBoxFor(x => x.Email, new { @class = "form-control form-control-lg", placeholder = "E-posta adresi giriniz", @required = "required" })
+                            <div class="invalid-feedback">Lütfen geçerli bir e-posta adresi giriniz.</div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="PhoneNumber">Telefon Numarası:</label>
+                            @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control form-control-lg", placeholder = "Telefon numarası giriniz", @required = "required" })
+                            <div class="invalid-feedback">Lütfen telefon numarası giriniz.</div>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label for="Address">Açık Ev Adresi:</label>
+                            @Html.TextBoxFor(x => x.Address, new { @class = "form-control form-control-lg", placeholder = "Ev adresi giriniz", @required = "required" })
+                            <div class="invalid-feedback">Lütfen ev adresi giriniz.</div>
+                        </div>
+                        <button type="submit" class="btn btn-lg btn-success">KAYDET</button>
+                    }
+                </div>
+            </div>
+            <!-- Modern Form Card End -->
+        </div>
+    </div>
+</div>
+
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>

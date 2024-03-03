@@ -1,0 +1,60 @@
+﻿@using KidKinder.Models.Entities
+@model List<Student>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title">Öğrenci Listesi</h5>
+                    <p class="card-text">   .</p>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>İsim</th>
+                                    <th>Soyisim</th>
+                                    <th>Doğum Tarihi</th>
+                                    <th>Durum</th>
+                                    <th>Güncelle</th>
+                                    <th>Sil</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.StudentID</td>
+                                        <td>@item.FirstName</td>
+                                        <td>@item.LastName</td>
+                                        <td>@item.BirthDay.ToString("dd.MM.yyyy")</td>
+                                        <td>
+                                            @if (item.Status != false)
+                                            {
+                                                <i class="fas fa-thumbs-up text-success"></i>
+                                            }
+                                            else
+                                            {
+                                                <i class="fas fa-thumbs-down text-danger"></i>
+                                            }
+                                        </td>
+                                        <td><a href="/Student/BringStudent/@item.StudentID" class="btn btn-outline-secondary"><i class="fas fa-edit"></i> Güncelle</a></td>
+                                        <td><a href="/Student/Delete/@item.StudentID" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i> Sil</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <a href="/Student/Create/" class="btn btn-success"><i class="fas fa-plus-circle"></i> Yeni Kayıt</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

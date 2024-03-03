@@ -1,0 +1,62 @@
+﻿@using KidKinder.Models.Entities
+@model List<ClassRoom>
+
+@{ ViewBag.Title = "Index";
+                Layout = "~/Views/AdminLayout/Index.cshtml"; }
+
+<div class="pcoded-inner-content">
+    <!-- Main-body start -->
+    <div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page-body start -->
+            <div class="page-body">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="m-0">Sınıf Listesi</h5>
+                        <div class="card-header-right">
+                            <ul class="list-unstyled card-option">
+                                <li><i class="fas fa-cogs text-white"></i></li>
+                                <li><i class="fas fa-expand text-white"></i></li>
+                                <li><i class="fas fa-compress text-white"></i></li>
+                                <li><i class="fas fa-sync text-white"></i></li>
+                                <li><i class="fas fa-times text-white"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-block table-border-style">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Başlık</th>
+                                        <th>Toplam Ders</th>
+                                        <th>Ders Saati</th>
+                                        <th>Ücret</th>
+                                        <th>Gözat</th>
+                                        <th>Güncelle</th>
+                                        <th>Sil</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.Title</td>
+                                            <td>@item.TotalSeat</td>
+                                            <td>@item.ClassTime</td>
+                                            <td>@item.Price</td>
+                                            <td><a href="/Classes/DetailClasses/" class="btn btn-outline-primary btn-sm rounded-pill"><i class="fas fa-eye"></i> Gözat</a></td>
+                                            <td><a href="/Classes/BringClass/@item.ClassRoomId" class="btn btn-outline-warning btn-sm rounded-pill"><i class="fas fa-edit"></i> Güncelle</a></td>
+                                            <td><a href="/Classes/Delete/@item.ClassRoomId" class="btn btn-outline-danger btn-sm rounded-pill"><i class="fas fa-trash-alt"></i> Sil</a></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <a href="/Classes/Create/" class="btn btn-success btn-sm rounded-pill"><i class="fas fa-plus-circle"></i> Yeni Sınıf Oluştur</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

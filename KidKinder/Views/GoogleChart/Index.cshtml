@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Element', 'Density', { role: 'style' }],
+            ['Referans', @ViewBag.a, '#b87333'],    // RGB value
+            ['Öğretmen', @ViewBag.b, 'silver'],            // English color name
+            ['Öğrenci', @ViewBag.c, 'gold'],
+           
+            ['Ebeveyn', @ViewBag.e, 'color: #76A7FA' ],
+        ]);
+
+        var view = new google.visualization.DataView(data);
+        view.setColumns([0, 1,
+                         { calc: "stringify",
+                           sourceColumn: 1,
+                           type: "string",
+                           role: "annotation" },
+                         2]);
+
+        var options = {
+            title: "My Daily Activities",
+            width: 900,
+            height: 500,
+            bar: {groupWidth: "95%"},
+            legend: { position: "none" },
+        };
+        var chart = new google.visualization.LineChart(document.getElementById("piechart_3d"));
+        chart.draw(view, options);
+    }
+    </script>
+</head>
+<body>
+
+    <div id="piechart_3d" style="width: 900px; height: 500px; margin-top:120px; margin-left:250px;"></div>
+</body>
+</html>
