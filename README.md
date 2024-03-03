@@ -1,19 +1,13 @@
-Bu proje, ebeveynlerin, çocuklarının yeteneklerine ve ihtiyaçlarına en uygun eğitim ortamlarını kolayca bulmalarına ve onları bu sınıflara kaydettirmelerine olanak tanıyor. 
+# Projeye Genel Bakış
+Bu proje, kullanıcıların özgeçmişlerini kolayca oluşturmalarına ve yönetmelerine olanak tanıyan bir kişisel portfolyo uygulamasıdır. Entity Framework DbFirst yaklaşımı kullanılarak geliştirilmiş dinamik bir web sitesidir.
+## Kullanılan Teknolojiler
 
-#Kullanılan Teknolojiler
+* CRUD İşlemleri: Kullanıcılar, özgeçmiş bilgilerini ekleyebilir, düzenleyebilir, silebilir ve görüntüleyebilir.
+* OnePage Tema: Tema, daha kolay yönetim ve özelleştirme için partiuallara ayrılmıştır.
+* MVC5: Proje, MVC 5 framework'ü kullanılarak geliştirilmiştir.
+## Admin Paneli Özellikleri
+* Sayfa Yönetimi: Admin paneli, kullanıcıların web sitesinin sayfalarını ve içeriğini düzenlemelerine ve yeni içerik eklemelerine olanak tanır.
+* Mesaj Yönetimi: UI tarafından gelen mesajlar görüntülenebilir, silinebilir ve okunma durumu değiştirilebilir.
+* Site verileri hakkında detaylı istatistikler Dashboard sayfasında görüntülenebilir.
 
-MSSQL Veritabanı
-Asp.Net
-Entity Framework Code First LINQ
-Proje Seviyesinde Authorize
-Oturum Açma
-
-#Yönetici Paneli Özellikleri:
-Ana panel üzerinden istatistikleri görüntüleme
-Profil düzenleme işlevi
-Bildirimler gönderme yetkisi
-Gelen mesajları takip etme
-Site üzerindeki tüm veriler için CRUD işlemlerini yönetebilme
-Galerideki resimleri ana sayfaya ekleme veya kaldırma yetkisi
-Bu özellikler, yöneticilere siteyi etkin bir şekilde yönetme ve kullanıcı deneyimini optimize etme imkanı sunar.
-
+  Bu özellikler, yöneticilere siteyi etkin bir şekilde yönetme ve kullanıcı deneyimini optimize etme imkanı sunar.
